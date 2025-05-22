@@ -63,17 +63,19 @@ python post_analysis.py \
 
 
 ## 🧾 Script Argument Descriptions (all_in_one_final.sh)
-Flag	Description
--a	(Required) Slurm account name for job submission.
--e	(Required) Email address for job notifications.
--c	Number of CPUs to allocate (default: 4).
--m	Memory in GB to allocate (default: 62).
--d	Number of days to allocate for the job (default: 1).
--p	(Required) Directory containing pathogen FASTA files.
--i	(Required) Directory containing host FASTA files.
--l	(Required) Directory containing AlphaFold3 model parameters.
--f	CD-HIT clustering cutoff (range: 0.4 to 1.0, default: 0.5).
--o	Output directory for results (default: ./AF3_out).
+| Flag | Description |
+|------|-------------|
+| `-a` | Slurm account name (required) |
+| `-e` | Email for job notifications (required) |
+| `-c` | Number of CPUs (default: 4) |
+| `-m` | Memory in GB (default: 62) |
+| `-d` | Number of days for job runtime (default: 1) |
+| `-p` | Pathogen FASTA directory (required) |
+| `-i` | Host FASTA directory (required) |
+| `-l` | AlphaFold3 model parameter directory (required) |
+| `-f` | CD-HIT cutoff (range: 0.4–1.0, default: 0.5) |
+| `-o` | Output directory (default: `./AF3_out`) |
+
 
 
 ## 🔄Pipeline Stages
