@@ -28,7 +28,7 @@ def extract_res_multimer(af3_out_dir, save_csv_path):
         # get the protein-protein pair name
         kmer = file.split("/")[-3].split("_")[-1].split("-")[0]
         
-        sum_conf_js = file.split("/")[-1].split("_summ")[0].split("--VS--") # split example ".../orange1.1g012861m--VS--wp_012778596.1_summary_confidences.json"
+        sum_conf_js = file.split("/")[-1].split("_summ")[0].split("--vs--") # split example ".../orange1.1g012861m--VS--wp_012778596.1_summary_confidences.json"
         pathogen_nm = sum_conf_js[0].upper()
         host_nm = sum_conf_js[1] # lib seq names example egx35_rs04050
 
