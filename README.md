@@ -76,12 +76,12 @@ python post_analysis.py \
 
 
 ## 🔄Pipeline Stages
-SignalP: Predicts secreted proteins from pathogen sequences.
-OrthoFinder: Identifies orthologous groups.
-CD-HIT: Clusters proteins to reduce redundancy.
-JSON Preparation: Generates input files for AlphaFold3.
-AlphaFold3: Predicts protein-protein interactions.
-Post-Analysis: Extracts and ranks interaction confidence scores.
+SignalP: Predicts secreted proteins from pathogen sequences.  
+OrthoFinder: Identifies orthologous groups.  
+CD-HIT: Clusters proteins to reduce redundancy.  
+JSON Preparation: Generates input files for AlphaFold3.  
+AlphaFold3: Predicts protein-protein interactions.  
+Post-Analysis: Extracts and ranks interaction confidence scores.  
 
 ## 📬Contact
 For questions or contributions, please contact:
