@@ -22,10 +22,7 @@ This repository provides a comprehensive pipeline for analyzing pathogen-host pr
   - OrthoFinder
   - CD-HIT
   - AlphaFold3
-
-Python packages:
-
-pip install pandas
+- pandas
 
 
 ## 🚀 Installation
