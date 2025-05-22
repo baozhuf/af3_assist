@@ -18,8 +18,77 @@ This repository provides a comprehensive pipeline for analyzing pathogen-host pr
 - Slurm Workload Manager
 - Singularity
 - Required tools:
-  - [SignalP 6.0](https://services.healthtech- AlphaFold3
+  - SignalP 6.0
+  - OrthoFinder
+  - CD-HIT
+  - AlphaFold3
 
 Python packages:
-```bash
+
 pip install pandas
+
+
+🚀 Installation
+Clone the repository:
+
+git clone https://github.com/baozhuf/af3_assist.git
+cd af3_assist
+
+🧪 Usage
+Scenario 1. Run the Full Pipeline with Slurm
+bash all_in_one_final.sh \
+  -a your_slurm_account \
+  -e your_email@example.com \
+  -p ./pathogen_fasta_dir \
+  -i ./host_fasta_dir \
+  -l /path/to/af3_model_parameters \
+  -f 0.5 \
+  -o ./AF3_out
+
+Scenario 2. You only want to Prepare JSONs for AlphaFold3 on alphafoldserver.com
+python prepare_json_from_fa.py \
+  --fa1_path path/to/pathogen.fa \
+  --fa2_path path/to/host.fa \
+  --protein1_cnt 1 \
+  --protein2_cnt 1 \
+  --num 30 \
+  --today 20250501 \
+  --out_dir ./output_jsons
+
+Scenario 3. You only want to Run Post-Analysis to extract AlphaFold3 metrics (pTM, ipTM)
+python post_analysis.py \
+  --af3_out_dir ./AF3_out \
+  --summary_path ./AF3_out/af3_results_summary.csv
+
+
+🧾 Script Argument Descriptions (all_in_one_final.sh)
+Flag	Description
+-a	(Required) Slurm account name for job submission.
+-e	(Required) Email address for job notifications.
+-c	Number of CPUs to allocate (default: 4).
+-m	Memory in GB to allocate (default: 62).
+-d	Number of days to allocate for the job (default: 1).
+-p	(Required) Directory containing pathogen FASTA files.
+-i	(Required) Directory containing host FASTA files.
+-l	(Required) Directory containing AlphaFold3 model parameters.
+-f	CD-HIT clustering cutoff (range: 0.4 to 1.0, default: 0.5).
+-o	Output directory for results (default: ./AF3_out).
+
+
+🔄Pipeline Stages
+SignalP: Predicts secreted proteins from pathogen sequences.
+OrthoFinder: Identifies orthologous groups.
+CD-HIT: Clusters proteins to reduce redundancy.
+JSON Preparation: Generates input files for AlphaFold3.
+AlphaFold3: Predicts protein-protein interactions.
+Post-Analysis: Extracts and ranks interaction confidence scores.
+
+📬Contact
+For questions or contributions, please contact:
+Zhenghong Bao
+📧 z.bao@ufl.edu
+
+
+📄 License
+This project is licensed under the MIT License.
+
